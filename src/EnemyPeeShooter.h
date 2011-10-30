@@ -2,12 +2,12 @@
 #define ENEMYPEESHOOTER_H
 
 #include "Weapon.h"
-
+#include "ShipHalo.h"
 
 class EnemyPeeShooter : public Weapon
 {
   public:
-    EnemyPeeShooter( Game* owner, Ship* body );
+    EnemyPeeShooter( Game* owner, Ship* body);
     virtual ~EnemyPeeShooter();
     virtual void update(int msTimeStep);
     virtual void draw(SDL_Surface* screen);

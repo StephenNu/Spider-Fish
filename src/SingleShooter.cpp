@@ -12,13 +12,21 @@
 #include "OrbBullet.h"
 
 // Constant
-
-SingleShooter::SingleShooter( Game* owner, Ship* body ) :
-  Weapon( owner, body )
+#include "ShipHalo.h"
+// Added a parameter to pass the halo to the weapon. Stephen
+SingleShooter::SingleShooter( Game* owner, Ship* body, ShipHalo* halo ) : 
+Weapon( owner, body, halo )
 {
   _firingSpeed = 200;
+  isPlayer = true;
 }
 
+SingleShooter::SingleShooter( Game* owner, Ship* body) : 
+Weapon( owner, body )
+{
+  _firingSpeed = 200;
+  isPlayer = false;
+}
 SingleShooter::~SingleShooter()
 {
 }
@@ -57,6 +65,8 @@ void SingleShooter::update( int msTimeStep )
     if( _firingSpeed < _lastShot )
     {
       fire();
+	 // Decreases the rad by 6 from its current every time it fires. Stephen
+	 _halo->setRad(( _halo->getRad()-6));
 
       _lastShot = _lastShot % _firingSpeed;
     }
@@ -70,5 +80,13 @@ void SingleShooter::draw( SDL_Surface* screen )
 void SingleShooter::fire()
 {
   //_owner->addGameObject( new OrbBullet( _body->getX(), _body->getY() ) );
-  _owner->addGameObject( new OrbBullet( _owner, _body->getX(), _body->getY() ) );
+	// Added the halo reference to OrbBullet so it can be passed to bullet or not based on if its a player ship or not. Stephen.
+	if (isPlayer)
+	{
+		_owner->addGameObject( new OrbBullet( _owner, _body->getX(), _body->getY(), _halo  ));
+	}
+	else
+	{
+		_owner->addGameObject( new OrbBullet( _owner, _body->getX(), _body->getY()));
+	}
 }

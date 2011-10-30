@@ -37,7 +37,7 @@ void EnemyPeeShooter::draw( SDL_Surface* screen )
 
 void EnemyPeeShooter::fire()
 {
-  OrbBullet* ob = new OrbBullet( _owner, _body->getX(), _body->getY() ) ;
+  OrbBullet* ob = new OrbBullet( _owner, _body->getX(), _body->getY()) ;
   ob->setVeloY(ob->getVeloY()*-1);
   _owner->addGameObject( ob );
 }

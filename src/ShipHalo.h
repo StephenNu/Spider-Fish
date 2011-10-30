@@ -15,6 +15,7 @@ class ShipHalo : public PhysicalEntity
     virtual void update( int msTimeStep );
     int getRad()const;
     void setRad( int rad );
+	bool isNull();
   protected:
   private:
     float _rad;

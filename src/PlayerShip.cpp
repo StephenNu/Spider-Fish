@@ -17,7 +17,8 @@ PlayerShip::PlayerShip( Game* owner, int x, int y ):
       ),
   _halo( owner, 100, x, y )
 {
-  _weapon = new SingleShooter( owner, this );
+	// Added the halo reference to pass the current halo down to the weapon to the bullet.
+  _weapon = new SingleShooter( owner, this, &_halo );
   _weaponList.push_back( _weapon );
 }
 

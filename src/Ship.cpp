@@ -44,6 +44,7 @@ void Ship::update( int msTimeStep )
 {
   if( _weapon != NULL )
     _weapon->update( msTimeStep );
+  
   PhysicalEntity::update( msTimeStep );
 }
 

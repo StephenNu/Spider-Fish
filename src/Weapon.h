@@ -3,12 +3,15 @@
 
 #include "GameObject.h"
 #include "Ship.h"
+#include "ShipHalo.h"
 class Ship;
 
 class Weapon : public GameObject
 {
   public:
-    Weapon( Game* owner, Ship* body );
+	  // Added ShipHalo* as a parameter. Only for player ship. Stephen
+    Weapon( Game* owner, Ship* body, ShipHalo* halo );
+	Weapon( Game* owner, Ship* body);
     virtual ~Weapon();
     virtual void handleEvent( SDL_Event* event ) = 0;
     virtual void update( int msTimeStep ) = 0;
@@ -19,6 +22,8 @@ class Weapon : public GameObject
     int _lastShot;
     int _firingSpeed;
     bool _triggerPulled;
+	// Added the _halo variable.
+	ShipHalo* _halo;
   private:
 };
 
