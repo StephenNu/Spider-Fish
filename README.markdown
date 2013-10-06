@@ -1,3 +1,10 @@
+
+This project was being made with Guild of Independent Game Authors (GIGA),
+but only got to this stage before being redone as a Javascript HTML 5 game. 
+I don't seem to have the javascript code stored anywhere even though we did finish that game.
+
+
+
 Spider Fish
 ===========
 
