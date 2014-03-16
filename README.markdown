@@ -38,13 +38,10 @@ Linux
 Prerequisites
 -------
 1. libsdl1.2
-2. libsdl1.2-dev
 3. libsdl-ttf2.0
-4. libsdl-ttf2.0-dev
 5. libsdl-image1.2
-6. libsdl-image1.2-dev
 7. libsdl-mixer1.2
-8. libsdl-mixer1.2-dev
+8. libsdl-gfx
 9. cmake
 10. make
 11. gcc
